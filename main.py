@@ -5,6 +5,9 @@ import database as db
 mcp = FastMCP("Bank MCP Server")
 
 
+app=mcp.app
+
+
 @mcp.tool()
 def create_account(payload: CreateAccount):
     acct = db.create_account(payload.owner, payload.initial_deposit)
