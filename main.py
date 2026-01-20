@@ -1,9 +1,11 @@
+# from mcp.server.mcp_server import mcp_server
 from fastmcp import FastMCP
 from models import CreateAccount, Amount
 import database as db
 
 mcp = FastMCP("Bank MCP Server")
 
+db.init_db()
 
 app=mcp.app
 
