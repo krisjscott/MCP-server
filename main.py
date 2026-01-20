@@ -2,6 +2,7 @@
 from fastmcp import FastMCP
 from models import CreateAccount, Amount
 import database as db
+import os
 
 mcp = FastMCP("Bank MCP Server")
 
@@ -79,5 +80,7 @@ def transactions(account_id: int, limit: int = 20):
         "transactions": txs
     }
 if __name__ == "__main__":
-    mcp.run(transport="streamable-http")
+    mcp.run(transport="streamable-http",
+            host="0.0.0.0",
+            port=int(os.environ["PORT"]))
 
