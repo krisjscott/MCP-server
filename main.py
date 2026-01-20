@@ -7,7 +7,7 @@ mcp = FastMCP("Bank MCP Server")
 
 db.init_db()
 
-app=mcp.app
+# app=mcp.app
 
 
 @mcp.tool()
@@ -79,5 +79,5 @@ def transactions(account_id: int, limit: int = 20):
         "transactions": txs
     }
 if __name__ == "__main__":
-    mcp.run()
+    mcp.run(transport="streamable-http")
 
